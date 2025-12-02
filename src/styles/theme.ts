@@ -1,29 +1,47 @@
-import { Theme } from "@mui/material"
-import { createTheme } from "@mui/material/styles"
-
-const theme: Theme = createTheme({
-  palette: {
-    primary: {
-      main: "#0D47A1",
-      dark: "#2196F3",
-      light: "#F5F5F5",
-      contrastText: "#FDE5D4"
-    },
-    secondary: {
-      main: "#01579B",
-      dark: "#03A9F4",
-      light: "#B3E5FC",
-      contrastText: "#F5F5F5"
-    },
-    error: {
-      main: "#F44336",
-      light: "#E57373"
-    },
-    success: {
-      main: "#1B5E20",
-      light: "#4CAF50"
-    }
-  }
+import { createTheme } from "@mui/material"
+import { ptBR as coreptBR } from "@mui/material/locale"
+import { ptBR } from "@mui/x-date-pickers/locales"
+import { Roboto } from "next/font/google"
+const roboto = Roboto({
+  weight: ["300", "400", "500", "700"],
+  subsets: ["latin"],
+  display: "swap"
 })
 
-export default theme
+const dark = createTheme(
+  {
+    cssVariables: true,
+    palette: {
+      mode: "dark",
+      background: {
+        default: "#121212",
+        paper: "#1d1d1d"
+      }
+    },
+    typography: {
+      fontFamily: roboto.style.fontFamily
+    }
+  },
+  ptBR,
+  coreptBR
+)
+
+const ligth = createTheme(
+  {
+    cssVariables: true,
+    palette: {
+      mode: "light",
+      background: {
+        default: "#f5f5f5",
+        paper: "#ffffff"
+      }
+    },
+    typography: {
+      fontFamily: roboto.style.fontFamily
+    }
+  },
+  ptBR,
+  coreptBR
+)
+
+export { dark, ligth, roboto }

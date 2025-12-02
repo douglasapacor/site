@@ -1,4 +1,4 @@
-import { useContextMaster } from "@/context/Master"
+import { useApplication } from "@/lib/components/ApplicationContext"
 import { Visibility, VisibilityOff } from "@mui/icons-material"
 import {
   Avatar,
@@ -24,7 +24,7 @@ import { useState, type FC } from "react"
 export const Topo: FC = () => {
   const [loginDialog, setLoginDialog] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
-  const ctx = useContextMaster()
+  const ctx = useApplication()
   const handleClickOpen = () => {
     setLoginDialog(true)
   }
@@ -52,7 +52,15 @@ export const Topo: FC = () => {
     >
       <Container>
         <Grid container justifyContent="space-between">
-          <Grid item xs={12} sm={6} md={6} lg={3} xl={3}>
+          <Grid
+            size={{
+              xs: 12,
+              sm: 6,
+              md: 6,
+              lg: 3,
+              xl: 3
+            }}
+          >
             <Box
               sx={{
                 width: "100%",
@@ -62,9 +70,9 @@ export const Topo: FC = () => {
                 alignItems: "center"
               }}
             >
-              <a href="/site/inicio">
+              <a href="/inicio">
                 <Image
-                  src="/logos/logo_inr.svg"
+                  src="/inline-logo.svg"
                   width="161"
                   height="81"
                   alt="INR Logo"
@@ -74,7 +82,15 @@ export const Topo: FC = () => {
           </Grid>
 
           {ctx.user ? (
-            <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6,
+                md: 6,
+                lg: 4,
+                xl: 4
+              }}
+            >
               <Box
                 sx={{
                   width: "100%",
@@ -85,9 +101,17 @@ export const Topo: FC = () => {
                 }}
               >
                 <Grid container>
-                  <Grid item xs={12} sm={12} md={9} lg={9} xl={9}>
+                  <Grid
+                    size={{
+                      xs: 12,
+                      sm: 12,
+                      md: 9,
+                      lg: 9,
+                      xl: 9
+                    }}
+                  >
                     <Grid container justifyContent="center" alignItems="center">
-                      <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                      <Grid size={12}>
                         <Box
                           sx={{
                             width: "100%",
@@ -102,7 +126,15 @@ export const Topo: FC = () => {
                         </Box>
                       </Grid>
 
-                      <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+                      <Grid
+                        size={{
+                          xs: 12,
+                          sm: 12,
+                          md: 4,
+                          lg: 4,
+                          xl: 4
+                        }}
+                      >
                         <Box
                           sx={{
                             width: "100%",
@@ -120,7 +152,15 @@ export const Topo: FC = () => {
                         </Box>
                       </Grid>
 
-                      <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+                      <Grid
+                        size={{
+                          xs: 12,
+                          sm: 12,
+                          md: 4,
+                          lg: 4,
+                          xl: 4
+                        }}
+                      >
                         <Box
                           sx={{
                             width: "100%",
@@ -136,7 +176,15 @@ export const Topo: FC = () => {
                         </Box>
                       </Grid>
 
-                      <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+                      <Grid
+                        size={{
+                          xs: 12,
+                          sm: 12,
+                          md: 4,
+                          lg: 4,
+                          xl: 4
+                        }}
+                      >
                         <Box
                           sx={{
                             width: "100%",
@@ -153,7 +201,15 @@ export const Topo: FC = () => {
                       </Grid>
                     </Grid>
                   </Grid>
-                  <Grid item xs={12} sm={12} md={3} lg={3} xl={3}>
+                  <Grid
+                    size={{
+                      xs: 12,
+                      sm: 12,
+                      md: 3,
+                      lg: 3,
+                      xl: 3
+                    }}
+                  >
                     <Box
                       sx={{
                         width: "100%",
@@ -175,7 +231,15 @@ export const Topo: FC = () => {
               </Box>
             </Grid>
           ) : (
-            <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6,
+                md: 6,
+                lg: 4,
+                xl: 4
+              }}
+            >
               <Box
                 sx={{
                   display: "flex",
@@ -185,7 +249,7 @@ export const Topo: FC = () => {
                   justifyContent: "flex-end"
                 }}
               >
-                <IconButton color="secondary" onClick={handleClickOpen}>
+                <IconButton color="primary" onClick={handleClickOpen}>
                   <Icon>key</Icon>
                 </IconButton>
               </Box>
@@ -197,7 +261,7 @@ export const Topo: FC = () => {
         <DialogContent>
           <Box sx={{ width: "100%" }}>
             <Grid container spacing={3}>
-              <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+              <Grid size={12}>
                 <Box
                   sx={{
                     width: "100%",
@@ -207,14 +271,14 @@ export const Topo: FC = () => {
                   }}
                 >
                   <Image
-                    src="/logos/logo_inr.svg"
+                    src="/inline-logo.svg"
                     alt="Logo inr desde 1989"
                     width={160}
                     height={70}
                   />
                 </Box>
               </Grid>
-              <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+              <Grid size={12}>
                 <Box
                   sx={{
                     width: "100%",
@@ -226,7 +290,7 @@ export const Topo: FC = () => {
                   <Typography variant="body1">LOGIN DE USUÁRIO</Typography>
                 </Box>
               </Grid>
-              <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+              <Grid size={12}>
                 <InputLabel htmlFor="userInput">Usuário</InputLabel>
                 <Input
                   fullWidth
@@ -238,7 +302,7 @@ export const Topo: FC = () => {
                   }
                 />
               </Grid>
-              <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+              <Grid size={12}>
                 <InputLabel htmlFor="passInput">Password</InputLabel>
                 <Input
                   fullWidth
@@ -264,7 +328,7 @@ export const Topo: FC = () => {
                   }
                 />
               </Grid>
-              <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+              <Grid size={12}>
                 <Box
                   sx={{
                     width: "100%",
@@ -280,8 +344,8 @@ export const Topo: FC = () => {
                   <Button variant="text">Esqueci minha senha</Button>
                 </Box>
               </Grid>
-              <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                <Button fullWidth variant="contained">
+              <Grid size={12}>
+                <Button fullWidth variant="contained" onClick={() => {}}>
                   Entrar
                 </Button>
               </Grid>

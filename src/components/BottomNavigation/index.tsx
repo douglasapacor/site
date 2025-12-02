@@ -1,9 +1,7 @@
 import { Box, Container, Grid } from "@mui/material"
 import type { FC } from "react"
 const height = 280
-const fontSize = "0.85em"
-const pLeft = "20px"
-const pTop = "20px"
+const fontSize = "0.70em"
 
 export const BottomNavigation: FC = ({ ...props }) => {
   return (
@@ -11,131 +9,131 @@ export const BottomNavigation: FC = ({ ...props }) => {
       sx={{
         width: "100%",
         height: height,
-        background: theme => theme.palette.primary.dark
+        background: theme => theme.palette.primary.dark,
+        paddingTop: "20px"
       }}
     >
       <Container>
         <Grid container>
-          <Grid item xs={12} sm={12} md={2} lg={2} xl={2}>
+          <Grid size={{ xs: 12, sm: 12, md: 2, lg: 2, xl: 2 }}>
             <Box
               sx={{
                 width: "100%",
-                height: height,
                 display: "flex",
-                paddingTop: pTop,
-                paddingLeft: pLeft,
                 flexDirection: "column",
                 color: "#F5F5F5",
                 fontSize: fontSize,
-                fontFamily: "Segoe UI, sans-serif"
+                fontFamily: "RobotoSlab"
               }}
             >
-              <a>INSTITUCIONAL</a>
+              <a className="bottom-navigation-anchor">INSTITUCIONAL</a>
             </Box>
           </Grid>
 
-          <Grid item xs={12} sm={12} md={2} lg={2} xl={2}>
+          <Grid size={{ xs: 12, sm: 12, md: 2, lg: 2, xl: 2 }}>
             <Box
               sx={{
                 width: "100%",
-                height: height,
                 display: "flex",
-                paddingTop: pTop,
-                paddingLeft: pLeft,
                 flexDirection: "column",
                 color: "#F5F5F5",
                 fontSize: fontSize,
-                fontFamily: "Segoe UI, sans-serif"
+                fontFamily: "RobotoSlab",
+                gap: 0.8
               }}
             >
-              <a>BOLETIM ELETRÔNICO</a>
-              <a>Notícias</a>
-              <a>Jurisprudência</a>
-              <a>opnião</a>
-              <a>Perguntas e Respostas</a>
-              <a>Mensagen dos Editores</a>
-              <a>Pareceres CGJ SP</a>
-              <a>Suplementos da consultoria INR</a>
+              <a style={{ userSelect: "none", textTransform: "uppercase" }}>
+                boletim eletrônico inr
+              </a>
+              <a className="bottom-navigation-anchor">Notícias</a>
+              <a className="bottom-navigation-anchor">Jurisprudência</a>
+              <a className="bottom-navigation-anchor">opnião</a>
+              <a className="bottom-navigation-anchor">Perguntas e Respostas</a>
+              <a className="bottom-navigation-anchor">Mensagen dos Editores</a>
+              <a className="bottom-navigation-anchor">Pareceres CGJ SP</a>
+              <a className="bottom-navigation-anchor">
+                Suplementos da consultoria INR
+              </a>
             </Box>
           </Grid>
 
-          <Grid item xs={12} sm={12} md={2} lg={2} xl={2}>
+          <Grid size={{ xs: 12, sm: 12, md: 2, lg: 2, xl: 2 }}>
             <Box
               sx={{
                 width: "100%",
-                height: height,
                 display: "flex",
-                paddingTop: pTop,
-                paddingLeft: pLeft,
                 flexDirection: "column",
                 color: "#F5F5F5",
                 fontSize: fontSize,
-                fontFamily: "Segoe UI, sans-serif"
+                fontFamily: "RobotoSlab",
+                gap: 0.8
               }}
             >
-              <a>CLASSIFICADORES INR</a>
-              <a>Classificadores INR PR</a>
-              <a>Classificadores INR RS</a>
-              <a>Classificadores INR SP</a>
-              <a>Arquivos Acumulados dos Classificadores SP</a>
+              <a style={{ userSelect: "none", textTransform: "uppercase" }}>
+                CLASSIFICADORES INR
+              </a>
+              <a className="bottom-navigation-anchor">Classificadores INR PR</a>
+              <a className="bottom-navigation-anchor">Classificadores INR RS</a>
+              <a className="bottom-navigation-anchor">Classificadores INR SP</a>
+              <a className="bottom-navigation-anchor">
+                Arquivos Acumulados dos Classificadores SP
+              </a>
             </Box>
           </Grid>
 
-          <Grid item xs={12} sm={12} md={2} lg={2} xl={2}>
+          <Grid size={{ xs: 12, sm: 12, md: 2, lg: 2, xl: 2 }}>
             <Box
               sx={{
                 width: "100%",
-                height: height,
                 display: "flex",
-                paddingTop: pTop,
-                paddingLeft: pLeft,
                 flexDirection: "column",
                 color: "#F5F5F5",
                 fontSize: fontSize,
-                fontFamily: "Segoe UI, sans-serif"
+                fontFamily: "RobotoSlab",
+                gap: 0.8
               }}
             >
-              <a>SALAS TEMÁTICAS</a>
+              <a className="bottom-navigation-anchor">SALAS TEMÁTICAS</a>
             </Box>
           </Grid>
 
-          <Grid item xs={12} sm={12} md={2} lg={2} xl={2}>
+          <Grid size={{ xs: 12, sm: 12, md: 2, lg: 2, xl: 2 }}>
             <Box
               sx={{
                 width: "100%",
-                height: height,
                 display: "flex",
-                paddingTop: pTop,
-                paddingLeft: pLeft,
                 flexDirection: "column",
                 color: "#F5F5F5",
                 fontSize: fontSize,
-                fontFamily: "Segoe UI, sans-serif"
+                fontFamily: "RobotoSlab",
+                gap: 0.8
               }}
             >
-              <a>SERVIÇOS</a>
-              <a>Consultoria INR</a>
-              <a>INR Cursos</a>
-              <a>TV INR</a>
-              <a>Consultoria Notorial e Registral</a>
+              <a style={{ userSelect: "none", textTransform: "uppercase" }}>
+                SERVIÇOS
+              </a>
+              <a className="bottom-navigation-anchor">Consultoria INR</a>
+              <a className="bottom-navigation-anchor">INR Cursos</a>
+              <a className="bottom-navigation-anchor">TV INR</a>
+              <a className="bottom-navigation-anchor">
+                Consultoria Notorial e Registral
+              </a>
             </Box>
           </Grid>
 
-          <Grid item xs={12} sm={12} md={2} lg={2} xl={2}>
+          <Grid size={{ xs: 12, sm: 12, md: 2, lg: 2, xl: 2 }}>
             <Box
               sx={{
                 width: "100%",
-                height: height,
                 display: "flex",
-                paddingTop: pTop,
-                paddingLeft: pLeft,
                 flexDirection: "column",
                 color: "#F5F5F5",
                 fontSize: fontSize,
-                fontFamily: "Segoe UI, sans-serif"
+                fontFamily: "RobotoSlab",
+                gap: 0.8
               }}
             >
-              <a>BASE DE DADOS</a>
+              <a className="bottom-navigation-anchor">BASE DE DADOS</a>
             </Box>
           </Grid>
         </Grid>

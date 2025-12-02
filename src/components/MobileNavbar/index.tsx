@@ -6,25 +6,25 @@ import {
   Container,
   IconButton,
   Menu,
-  MenuItem,
-} from "@mui/material";
-import { Menu as MenuIcon } from "@mui/icons-material";
-import { useState, type FC } from "react";
+  MenuItem
+} from "@mui/material"
+import { Menu as MenuIcon } from "@mui/icons-material"
+import { useState, type FC } from "react"
 
 export const MobileNavbar: FC = ({ ...props }) => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
+  const [anchorEl, setAnchorEl] = useState(null)
+  const open = Boolean(anchorEl)
   const handleClick = (event: any) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
   const handleClose = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
   return (
     <Box
       sx={{
         width: "100%",
-        height: 100,
+        height: 100
       }}
     >
       <Container>
@@ -44,7 +44,7 @@ export const MobileNavbar: FC = ({ ...props }) => {
             open={open}
             onClose={handleClose}
             MenuListProps={{
-              "aria-labelledby": "basic-button",
+              "aria-labelledby": "basic-button"
             }}
           >
             <MenuItem>LOGO</MenuItem>
@@ -55,17 +55,17 @@ export const MobileNavbar: FC = ({ ...props }) => {
                 elevation={0}
                 disableGutters
                 sx={{
-                  backgroundColor: "transparent",
+                  backgroundColor: "transparent"
                 }}
               >
                 <AccordionSummary
                   sx={{
                     padding: 0,
                     minHeight: 0,
-                    margin: 0,
+                    margin: 0
                   }}
                   classes={{
-                    content: "custom-accordion",
+                    content: "custom-accordion"
                   }}
                 >
                   <span>Boletim Eletrônico INR</span>
@@ -73,7 +73,7 @@ export const MobileNavbar: FC = ({ ...props }) => {
                 <AccordionDetails
                   sx={{
                     padding: 0,
-                    margin: 0,
+                    margin: 0
                   }}
                 >
                   <MenuItem>Notícias</MenuItem>
@@ -93,16 +93,16 @@ export const MobileNavbar: FC = ({ ...props }) => {
                 elevation={0}
                 disableGutters
                 sx={{
-                  backgroundColor: "transparent",
+                  backgroundColor: "transparent"
                 }}
               >
                 <AccordionSummary
                   sx={{
                     padding: 0,
-                    minHeight: 0,
+                    minHeight: 0
                   }}
                   classes={{
-                    content: "custom-accordion",
+                    content: "custom-accordion"
                   }}
                 >
                   <span>Classificadores INR</span>
@@ -110,7 +110,7 @@ export const MobileNavbar: FC = ({ ...props }) => {
                 <AccordionDetails
                   sx={{
                     padding: 0,
-                    margin: 0,
+                    margin: 0
                   }}
                 >
                   <MenuItem>Classificadores INR PR</MenuItem>
@@ -128,16 +128,16 @@ export const MobileNavbar: FC = ({ ...props }) => {
                 elevation={0}
                 disableGutters
                 sx={{
-                  backgroundColor: "transparent",
+                  backgroundColor: "transparent"
                 }}
               >
                 <AccordionSummary
                   sx={{
                     padding: 0,
-                    minHeight: 0,
+                    minHeight: 0
                   }}
                   classes={{
-                    content: "custom-accordion",
+                    content: "custom-accordion"
                   }}
                 >
                   <span>Serviços</span>
@@ -146,7 +146,7 @@ export const MobileNavbar: FC = ({ ...props }) => {
                   sx={{
                     padding: 0,
                     margin: 0,
-                    marginTop: ".5rem",
+                    marginTop: ".5rem"
                   }}
                 >
                   <MenuItem>Consultoria INR</MenuItem>
@@ -164,7 +164,7 @@ export const MobileNavbar: FC = ({ ...props }) => {
         </Box>
       </Container>
     </Box>
-  );
-};
+  )
+}
 
-export default MobileNavbar;
+export default MobileNavbar

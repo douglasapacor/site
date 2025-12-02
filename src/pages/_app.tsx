@@ -1,52 +1,35 @@
-import MasterCtxControll from "@/context/Master"
-import "@/styles/common.css"
-import theme from "@/styles/theme"
-import createCache from "@emotion/cache"
-import { CacheProvider, EmotionCache } from "@emotion/react"
-import "@fontsource/roboto/300.css"
-import "@fontsource/roboto/400.css"
-import "@fontsource/roboto/500.css"
-import "@fontsource/roboto/700.css"
-import { CssBaseline, ThemeProvider } from "@mui/material"
-import type { AppProps } from "next/app"
+import "../styles/globals.css"
+import "../styles/navbar-styles.css"
+import "../styles/bottom-navigation-styles.css"
+import { AppCacheProvider } from "@mui/material-nextjs/v15-pagesRouter"
+import { AppProps } from "next/app"
 import Head from "next/head"
-import { CookiesProvider } from "react-cookie"
-const isBrowser = typeof document !== "undefined"
-function createEmotionCache() {
-  let insertionPoint
+import { ReactNode } from "react"
+import { NextPage } from "next"
+import ApplicationProvider from "@/lib/components/ApplicationContext"
 
-  if (isBrowser) {
-    const emotionInsertionPoint = document.querySelector<HTMLMetaElement>(
-      'meta[name="emotion-insertion-point"]'
-    )
-
-    insertionPoint = emotionInsertionPoint ?? undefined
-  }
-
-  return createCache({ key: "mui-style", insertionPoint })
-}
-const clientSideEmotionCache = createEmotionCache()
-export interface MyAppProps extends AppProps {
-  emotionCache?: EmotionCache
+type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  layout?: React.ComponentType<{ children: React.ReactNode }>
 }
 
-export default function App(props: MyAppProps) {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
+interface AppPropsWithLayout extends AppProps {
+  Component: NextPageWithLayout
+}
 
+export default function MyApp(props: AppPropsWithLayout) {
+  const { Component, pageProps } = props
+  const Layout: React.ComponentType<{ children: ReactNode }> =
+    Component.layout ?? (({ children }) => <>{children}</>)
   return (
-    <CacheProvider value={emotionCache}>
+    <AppCacheProvider {...props}>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <title>INR Publicações</title>
       </Head>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <CookiesProvider>
-          <MasterCtxControll>
-            <Component {...pageProps} />
-          </MasterCtxControll>
-        </CookiesProvider>
-      </ThemeProvider>
-    </CacheProvider>
+      <ApplicationProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ApplicationProvider>
+    </AppCacheProvider>
   )
 }
