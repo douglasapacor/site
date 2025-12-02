@@ -8,7 +8,8 @@ import z from "zod"
 
 const validation = z.object({
   login: z.string({ error: "campo login inválido ou vazio." }),
-  senha: z.string({ error: "campo senha inválido ou vazio." })
+  senha: z.string({ error: "campo senha inválido ou vazio." }),
+  manterConectado: z.boolean()
 })
 
 export type loginParams = z.input<typeof validation>
@@ -72,6 +73,24 @@ const loginApi = new Api(
       }),
       process.env.KEY || ""
     )
+
+    if (data.manterConectado) {
+      const today = new Date()
+      today.setFullYear(today.getFullYear() + 10)
+
+      res.setHeader(
+        "Set-Cookie",
+        `credential=${token}; Path=/; Secure; Expires=${today.toUTCString()};`
+      )
+    } else {
+      const today = new Date()
+      const oneDate = new Date(today.getTime() + 8 * 60 * 60 * 1000)
+
+      res.setHeader(
+        "Set-Cookie",
+        `credential=${token}; Path=/; Secure; Expires=${oneDate.toUTCString()};`
+      )
+    }
 
     res.status(200).json({
       ok: true,
