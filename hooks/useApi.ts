@@ -2,13 +2,13 @@ import { IUsesession } from "@/lib/types/IUsesession";
 import { useCallback, useState } from "react";
 import axios from "axios";
 
-const buildstring = (url: string, params?: unknown): string => {
+const buildstring = (url: string, params?: object): string => {
   if (!params) return url;
   const keys = Object.keys(params);
   let final = url;
 
   for (const k of keys) {
-    final = final.replace(`{:${k}}`, params[k]);
+    final = final.replace(`{:${k}}`, params[k as keyof typeof params]);
   }
 
   return final;
