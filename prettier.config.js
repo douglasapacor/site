@@ -1,6 +1,5 @@
-module.exports = {
-  semi: false,
-  singleQuote: false,
-  arrowParens: "avoid",
-  trailingComma: "none",
+const config = {
+  plugins: ["prettier-plugin-tailwindcss"],
 };
+
+export default config;
